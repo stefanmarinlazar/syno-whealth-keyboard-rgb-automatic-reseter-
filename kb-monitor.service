@@ -1,0 +1,17 @@
+[Unit]
+Description=Auto-reset Sino Wealth Keyboard and Clear Buffer
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/auto_kb_reset.sh
+Restart=always
+RestartSec=3
+User=root
+
+# This ensures the service waits until the desktop is ready
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=graphical.target
+
